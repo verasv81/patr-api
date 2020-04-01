@@ -13,16 +13,20 @@ app.use(bodyParser.json());
 
 app.get('/user/:id', async (req, res) => {
   const user = await User.findById(req.params.id);
-
-  res.send(user);
+  res.json(user);
 });
 
 app.post('/user', async (req, res) => {
-  const user = req.body;
+  await User.create(req.body);
+  
+  const user = await User.findOne({name:req.body.name});
+  res.json(user);
+});
 
-  await User.create(user);
+app.post('/user/login', async (req, res) => {
+  const user = await User.findOne(req.body);
 
-  res.sendStatus(200);
+  res.json(user);
 });
 
 app.get('/home/:id', async (req, res) => {
