@@ -1,0 +1,29 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "useJSXTextNode": true,
+        "project": "./tsconfig.json",
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "modules": true,
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    ],
+    "rules": {
+        "no-inner-declarations": "warn",
+        "no-prototype-builtins": "warn",
+        "no-useless-escape": "warn",
+        "prefer-const": "warn"
+    }
+}
